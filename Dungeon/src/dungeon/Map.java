@@ -14,7 +14,7 @@ public class Map {
     private Room[][] map;
     private int xSize, ySize;
 
-    public Map(int xSize, int ySize) {
+    public Map(int xSize,int ySize) {
         map = new Room[xSize][ySize];
         this.xSize = xSize;
         this.ySize = ySize;
@@ -26,7 +26,7 @@ public class Map {
         }
     }
 
-    public Room getRoom(int x, int y) {
+    public Room getRoom(int x,int y) {
         return map[x][y];
     }
 
