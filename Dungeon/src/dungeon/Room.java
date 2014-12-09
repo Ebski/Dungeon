@@ -14,12 +14,12 @@ public class Room {
     private String description;
     private Room north, south, east, west;
 
-    public Room(String description, Room north, Room south, Room east, Room west) {
-        this.description = description;
-        this.north = north;
-        this.south = south;
-        this.east = east;
-        this.west = west;
+    public Room() {
+        this.description = null;
+        this.north = null;
+        this.south = null;
+        this.east = null;
+        this.west = null;
     }
 
     public String getDescription() {
