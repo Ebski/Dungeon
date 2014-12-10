@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dungeon;
 
 /**
@@ -17,10 +16,12 @@ public class Run {
      */
     public static void main(String[] args) {
         MyMap map = new MyMap();
-        
-        while (!(map.checkWin(map.start())))
-            map.checkRoom(map.start());
-            map.nextRoom(map.start());
+
+        while (!(map.checkWin(map.curRoom()))) {
+            map.checkRoom(map.curRoom());
+
+            map.nextRoom(map.curRoom());
+        }
+        System.out.println(map.curRoom().getDescription());
     }
-    
 }
