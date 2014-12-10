@@ -13,7 +13,7 @@ public class Room {
 
     private String description;
     private Room north, south, east, west;
-    private boolean win;
+    private boolean win, event;
 
     public Room() {
         this.description = null;
@@ -22,6 +22,7 @@ public class Room {
         this.east = null;
         this.west = null;
         this.win = false;
+        this.event = false;
     }
 
     public String getDescription() {
@@ -70,5 +71,13 @@ public class Room {
 
     public void setWin(boolean win) {
         this.win = win;
+    }
+
+    public boolean isEvent() {
+        return event;
+    }
+
+    public void setEvent(boolean event) {
+        this.event = event;
     }
 }
