@@ -47,7 +47,7 @@ public class MyMap {
 
         map.getRoom(1, 1).setNorth(map.getRoom(1, 0));
         map.getRoom(1, 1).setSouth(map.getRoom(1, 2));
-        map.getRoom(1, 1).setDescription("By the look of this room it appears you have entered an old ball. "
+        map.getRoom(1, 1).setDescription("By the look of this room it appears you have entered an old ball hall. "
                 + "Towards north there is a giant door, and towards south there is also a giant door.");
 
         map.getRoom(2, 1).setNorth(map.getRoom(2, 0));
