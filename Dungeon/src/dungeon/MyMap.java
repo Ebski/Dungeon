@@ -39,7 +39,7 @@ public class MyMap {
         map.getRoom(0, 1).setDescription("Room 0.1");
 
         map.getRoom(1, 1).setNorth(map.getRoom(1, 0));
-        map.getRoom(1, 1).setSouth(map.getRoom(2, 1));
+        map.getRoom(1, 1).setSouth(map.getRoom(1, 2));
         map.getRoom(1, 1).setDescription("Room 1.1");
 
         map.getRoom(2, 1).setNorth(map.getRoom(2, 0));
