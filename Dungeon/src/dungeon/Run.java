@@ -16,7 +16,11 @@ public class Run {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MyMap map = new MyMap();
+        
+        while (!(map.checkWin(map.start())))
+            map.checkRoom(map.start());
+            map.nextRoom(map.start());
     }
     
 }
