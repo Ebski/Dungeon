@@ -11,7 +11,7 @@ package dungeon;
  */
 public class Room {
 
-    private String description;
+    private String description, eventString;
     private Room north, south, east, west;
     private boolean win, event;
 
@@ -21,6 +21,7 @@ public class Room {
         this.south = null;
         this.east = null;
         this.west = null;
+        this.eventString = null;
         this.win = false;
         this.event = false;
     }
@@ -79,5 +80,13 @@ public class Room {
 
     public void setEvent(boolean event) {
         this.event = event;
+    }
+
+    public String getEventString() {
+        return eventString;
+    }
+
+    public void setEventString(String eventString) {
+        this.eventString = eventString;
     }
 }

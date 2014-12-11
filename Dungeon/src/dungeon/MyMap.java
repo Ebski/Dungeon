@@ -30,11 +30,14 @@ public class MyMap {
 
         map.getRoom(1, 0).setSouth(map.getRoom(1, 1));
         map.getRoom(1, 0).setEast(map.getRoom(2, 0));
+        map.getRoom(1, 0).setEvent(true);
+        map.getRoom(1, 0).setEventString("goblin");
         map.getRoom(1, 0).setDescription("You enter a tiny room, filled with creepy goblin statues. Towards east there is a small door with the sign 'WRONG WAY' towards south there is"
                 + "a sign saying 'TO FIND THE TREASURE GO THIS WAY'");
 
         map.getRoom(2, 0).setEast(map.getRoom(3, 0));
         map.getRoom(2, 0).setEvent(true);
+        map.getRoom(2, 0).setEventString("chest");
         map.getRoom(2, 0).setDescription("As you enter the new room the door behind you disapears. In the middle of the room there is a chest, towards east there is a door.");
 
         map.getRoom(3, 0).setSouth(map.getRoom(3, 1));
@@ -77,11 +80,11 @@ public class MyMap {
     public void checkRoom(Room room) {
         if ((!room.isWin())) {
             System.out.println(room.getDescription());
-            
+
             if (room.getNorth() == null && room.getSouth() == null && room.getEast() == null && room.getWest() == null) {
                 System.exit(0);
             }
-            
+
             System.out.println("In this room you can go ");
 
             if (!(room.getNorth() == null)) {
@@ -97,13 +100,20 @@ public class MyMap {
                 System.out.println("West");
             }
             if (room.isEvent()) {
-                System.out.println("You can also open the chest");
+                switch (room.getEventString()) {
+                    case "chest":
+                        System.out.println("You can also open the chest");
+                        break;
+                    case "goblin":
+                        System.out.println("Goblins attack you press 't' to fight them");
+                        break;
+                }
             }
 
             System.out.println("Type the first letter of the direction you want to go");
 
             if (room.isEvent()) {
-                System.out.println("type 'o' to open the chest");
+                System.out.println("Type 't' to trigger the event");
             }
         } else {
             System.out.println("You are through the maze. YOU WIN");
@@ -129,9 +139,18 @@ public class MyMap {
         if ((!(room.getWest() == null)) && direction.toLowerCase().equals("w")) {
             cur = room.getWest();
         }
-        if (room.isEvent() && direction.toLowerCase().equals("o")) {
-            plr.setDMG(event.chest(plr.getDMG()));
-            room.setEvent(false);
+        if (room.isEvent() && direction.toLowerCase().equals("t")) {
+            switch (room.getEventString()) {
+                case "chest":
+                    plr.setDMG(event.chest(plr.getDMG()));
+                    room.setEvent(false);
+                    break;
+                case "goblin":
+                    plr.setHP(event.fightGoblins(plr.getHP(), plr.getDMG()));
+                    room.setEvent(false);
+                    break;
+            }
+
         }
         return cur;
     }
