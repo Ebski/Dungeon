@@ -57,6 +57,7 @@ public class Event {
                     System.out.println("You lose the fight but manages to get away. you take 75 dmg");
                     hp = hp - 75;
                 }
+                break;
             case 2:
                 System.out.println("The battle is ballanced");
                 if (chance <= 5) {
@@ -66,6 +67,8 @@ public class Event {
                     System.out.println("The fight is a draw and you take 30 dmg");
                     hp = hp - 25;
                 }
+                break;
+
             case 3:
                 System.out.println("You have control over the battle");
                 if (chance <= 8) {
@@ -74,6 +77,7 @@ public class Event {
                     System.out.println("You win the battle but takes 10 dmg during the struggle");
                     hp = hp - 10;
                 }
+                break;
         }
         return hp;
     }
